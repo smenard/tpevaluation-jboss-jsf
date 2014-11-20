@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Evaluation TP</title>
+	<h:outputStylesheet library="css" name="style.css"  />
+	<h:outputStylesheet library="css" name="bootstrap.css"  />
+	<h:outputStylesheet library="css" name="bootstrap-theme.css"  />
+</h:head>
+<h:body>
+<header>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href='/evaluationTP/pages/protected/user/acceuil.xhtml'>Tp evaluation</a>
+			</div>
+			<ul class="list-unstyled nav navbar-nav navbar-right">
+				<li><a href="/evaluationTP/pages/protected/user/acceuil.xhtml">Accueil</a></li>
+				<li><h:link value="Administrateurs" outcome="/pages/protected/admin/admin/listAdmin.xhtml" rendered="#{userController.isAdmin()}"/></li>
+				<li><h:link value="Stagiaires" outcome="/pages/protected/admin/stagiaire/listStagiaire.xhtml" rendered="#{userController.isAdmin()}"/></li>
+				<li>
+				<h:form><h:commandLink value="Logout" action="#{userController.logout}" /></h:form>
+			
+		</li>
+		<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+			</ul>
+		</nav>
+	</header>
+	<section class="contenu">
+	<ui:insert name="contenu">
+	</ui:insert>
+	</section>
+	
+					<footer class="col-md-12"> &copy; - 2014 - Samuel Ménard</footer>
+</h:body>
+</html>

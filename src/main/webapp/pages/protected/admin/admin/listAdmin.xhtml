@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/resources/layout.xhtml">
+	<ui:define name="contenu"> 
+      <h:dataTable styleClass="table table-hover" value="#{administrateurController.administrateurs}" var="ad">
+	   <f:facet name="header">
+        <h:outputText value="Liste des administrateurs" />
+    </f:facet>
+     <h:column>
+        <f:facet name="header">
+            <h:outputText value="ID" />
+        </f:facet>
+        <h:outputText value="#{ad.id}" />
+    </h:column>
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Nom" />
+        </f:facet>
+        <h:outputText value="#{ad.nom}" />
+    </h:column>
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Prénom" />
+        </f:facet>
+        <h:outputText value="#{ad.prenom}" />
+    </h:column>
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Mot de Passe" />
+        </f:facet>
+        <h:outputText value="#{ad.password}" />
+    </h:column>
+     <h:column>
+        <f:facet name="header">
+            <h:outputText value="Email" />
+        </f:facet>
+        <h:outputText value="#{ad.email}" />
+    </h:column>
+     <h:column>
+        <f:facet name="header">
+            <h:outputText value="Rôle" />
+        </f:facet>
+        <h:outputText value="#{ad.role}" />
+    </h:column>
+     <h:column>
+        <f:facet name="header">
+            <h:outputText value="Actions" />
+        </f:facet>
+        <h:form>
+  <h:commandButton styleClass="btn btn-default" value="Update" action="#{administrateurController.doSelectUpdate}" />
+  <h:commandButton styleClass="btn btn-default" value="Supprimer" action="#{administrateurController.doDelete}" />
+  </h:form>
+    </h:column>
+    <f:facet name="footer">
+        <h:outputText value="Total : #{administrateurs.nbAdministrateurs}" />
+    </f:facet>
+	</h:dataTable>
+		<h:form>
+	<h:commandLink value="Créer un admin" action="#{administrateurController.prepareCreate}"/>
+	</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+
+

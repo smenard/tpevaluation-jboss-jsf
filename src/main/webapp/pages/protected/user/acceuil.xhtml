@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/resources/layout.xhtml">
+	<ui:define name="contenu"> 
+        Bienvenue dans l'application !!!
+  		<h:form>
+			<h:commandButton value="Logout" action="#{userController.logout}" />
+		</h:form>
+		<a href="/evaluationTP/pages/protected/admin/admin/listAdmin.xhtml">Voir
+			les administrateurs</a>
+		<a
+			href="/evaluationTP/pages/protected/admin/stagiaire/listStagiaire.xhtml">Voir
+			les stagiaires</a>
+<!-- 		<a href="/evaluationTP/pages/protected/admin/admin/createAdmin.xhtml">Créer -->
+<!-- 			un admin</a> -->
+<!-- 		<a -->
+<!-- 			href="/evaluationTP/pages/protected/admin/stagiaire/createStagiaire.xhtml">Créer -->
+<!-- 			un stagiaire</a> -->
+		<h:form>
+			<h:commandButton value="Password"
+				action="#{stagiaireController.showPassword}" />
+		</h:form>
+		<h:form>
+			<h:commandButton value="Mail"
+				action="#{stagiaireController.sendMail}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+
+

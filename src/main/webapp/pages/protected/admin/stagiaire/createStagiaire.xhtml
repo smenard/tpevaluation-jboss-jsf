@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/resources/layout.xhtml">
+	<ui:define name="contenu">
+		<div class="col-sm-offset-2 col-sm-10">
+			<h2>Créer un stagiaire :</h2>
+		</div>
+		<h:form styleClass="loginPanelStyle form-horizontal clearfix">
+			<h:inputHidden id="id" value="#{stagiaireController.stagiaire.id}" />
+
+			<div class="form-group">
+				<h:outputText value="Nom " styleClass="col-sm-2 control-label"></h:outputText>
+				<div class="col-sm-10">
+					<h:inputText id="nom" value="#{stagiaireController.stagiaire.nom}"
+						required="true" requiredMessage="Veuillez renseigner le nom!"
+						styleClass="form-control">
+						<f:validateLength minimum="1" />
+					</h:inputText>
+				</div>
+
+			</div>
+			<div class="form-group">
+				<h:outputText value="Prénom " styleClass="col-sm-2 control-label"></h:outputText>
+				<div class="col-sm-10">
+					<h:inputText id="prenom"
+						value="#{stagiaireController.stagiaire.prenom}" required="true"
+						requiredMessage="Veuillez renseigner le prénom!"
+						styleClass="form-control">
+						<f:validateLength minimum="1" />
+					</h:inputText>
+				</div>
+
+			</div>
+			<div class="form-group">
+				<h:outputText value="Email" styleClass="col-sm-2 control-label" />
+				<div class="col-sm-10">
+					<h:inputText id="email"
+						value="#{stagiaireController.stagiaire.email}" required="true"
+						requiredMessage="Veuillez renseigner l'email!"
+						styleClass="form-control" validator="#{emailAddressValidator.validate}">
+<!-- 						 -->
+						 <f:attribute name="idUser" value="#{stagiaireController.stagiaire.id}" />
+<!-- 						<f:validator validatorId="emailAddressValidator" /> -->
+					</h:inputText>
+				</div>
+			</div>
+			<div class="form-group">
+				<h:outputText value="Date de naissance :(dd/MM/yyyy) " styleClass="col-sm-2 control-label"></h:outputText>
+				<div class="col-sm-10">
+					<h:inputText id="dateNaissance"
+						value="#{stagiaireController.stagiaire.dateNaissance}"
+						required="false" styleClass="form-control">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:inputText>
+				</div>
+			</div>
+			<div class="form-group">
+				<h:outputText value="Téléphone : "
+					styleClass="col-sm-2 control-label" />
+				<div class="col-sm-10">
+					<h:inputText id="tel" value="#{stagiaireController.stagiaire.tel}"
+						styleClass="form-control">
+					</h:inputText>
+				</div>
+			</div>
+			<div class="form-group">
+				<h:outputText value="Adresse " styleClass="col-sm-2 control-label" />
+				<div class="col-sm-10">
+					<h:inputText id="adresse"
+						value="#{stagiaireController.stagiaire.adresse}"
+						styleClass="form-control">
+					</h:inputText>
+				</div>
+			</div>
+			<div class="form-group">
+				<h:outputText value="Code postal : "
+					styleClass="col-sm-2 control-label"></h:outputText>
+				<div class="col-sm-10">
+					<h:inputText id="codePostal"
+						value="#{stagiaireController.stagiaire.codePostal}"
+						styleClass="form-control">
+					</h:inputText>
+				</div>
+			</div>
+			<div class="form-group">
+				<h:outputText value="Ville : " styleClass="col-sm-2 control-label" />
+				<div class="col-sm-10">
+					<h:inputText id="ville"
+						value="#{stagiaireController.stagiaire.ville}"
+						styleClass="form-control">
+					</h:inputText>
+				</div>
+			</div>
+			<div class="form-group">
+				<h:outputText value="Sexe : " styleClass="col-sm-2 control-label" />
+				<h:selectOneRadio id="selectOneRadio"
+					value="#{stagiaireController.stagiaire.sexe}">
+					<f:selectItem itemValue="homme" itemLabel="Homme" />
+					<f:selectItem itemValue="femme" itemLabel="Femme" />
+				</h:selectOneRadio>
+			</div>
+			<div class="form-group">
+				<h:outputText value="Diplôme : " styleClass="col-sm-2 control-label" />
+				<div class="col-sm-10">
+					<h:inputText id="diplome"
+						value="#{stagiaireController.stagiaire.diplome}"
+						styleClass="form-control">
+					</h:inputText>
+				</div>
+			</div>
+			<div class="form-group">
+				<h:outputText value="Domaine : " styleClass="col-sm-2 control-label" />
+				<div class="col-sm-10">
+					<h:inputText id="domaine"
+						value="#{stagiaireController.stagiaire.domaine}"
+						styleClass="form-control">
+					</h:inputText>
+				</div>
+			</div>
+			<div class="col-sm-offset-2 col-sm-10">
+				<h:commandButton value="Submit" update="msgs"
+					action="#{stagiaireController.doCreate}" type="submit"
+					icon="ui-icon-check" style="margin:0" styleClass="btn btn-default"></h:commandButton>
+			</div>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+</html>
