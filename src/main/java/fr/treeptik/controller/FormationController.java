@@ -48,7 +48,7 @@ public class FormationController {
 		formationService.delete(f.getId());
 		formations = new ListDataModel();
 		formations.setWrappedData(formationService.getAll());
-		return "listAdmin";
+		return "listFormation";
 	}
 
 	public String doSelectUpdate() {

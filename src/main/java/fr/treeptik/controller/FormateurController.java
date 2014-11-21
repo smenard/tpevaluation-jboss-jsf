@@ -46,7 +46,7 @@ public class FormateurController {
 		formateurService.delete(f.getId());
 		formateurs = new ListDataModel();
 		formateurs.setWrappedData(formateurService.getAll());
-		return "listAdmin";
+		return "listFormateur";
 	}
 	public String doSelectUpdate(){
 		formateur = (Formateur)formateurs.getRowData();

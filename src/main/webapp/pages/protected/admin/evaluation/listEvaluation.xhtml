@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/resources/layout.xhtml">
+	<ui:define name="contenu"> 
+       <h:dataTable styleClass="table table-hover" value="#{evaluationController.evaluations}" var="e">
+	   <f:facet name="header">
+        <h:outputText value="Liste des évaluations " />
+    </f:facet>
+     <h:column>
+        <f:facet name="header">
+            <h:outputText value="ID" />
+        </f:facet>
+        <h:outputText value="#{e.id}" />
+    </h:column>
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Nom" />
+        </f:facet>
+        <h:outputText value="#{e.nom}" />
+    </h:column>
+     <h:column>
+        <f:facet name="header">
+            <h:outputText value="Actions" />
+        </f:facet>
+        <h:form>
+  <h:commandButton styleClass="btn btn-default" value="Update" action="#{evaluationController.doSelectUpdate}" />
+  <h:commandButton styleClass="btn btn-default" value="Supprimer" action="#{evaluationController.doDelete}" />
+  </h:form>
+    </h:column>
+    <f:facet name="footer">
+        <h:outputText value="Total :" />
+    </f:facet>
+	</h:dataTable>
+	<h:form>
+	<h:commandLink value="Créer une évaluation" action="#{evaluationController.prepareCreate}"/>
+	</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+
+

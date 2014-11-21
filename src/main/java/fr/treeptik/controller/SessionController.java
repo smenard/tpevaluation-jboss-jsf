@@ -46,7 +46,7 @@ public class SessionController {
 		sessionService.delete(f.getId());
 		sessions = new ListDataModel();
 		sessions.setWrappedData(sessionService.getAll());
-		return "listAdmin";
+		return "listSession";
 	}
 	public String doSelectUpdate(){
 		session = (Session)sessions.getRowData();
