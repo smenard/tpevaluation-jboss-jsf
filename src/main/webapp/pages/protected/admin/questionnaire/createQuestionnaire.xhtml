@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/resources/layout.xhtml">
+	<ui:define name="contenu">
+		<div class="col-sm-offset-2 col-sm-10">
+			<h2>Créer un questionnaire :</h2>
+		</div>
+		<h:form styleClass="loginPanelStyle">
+			<h:inputHidden id="id"
+				value="#{questionnaireController.questionnaire.id}" />
+			<div class="form-group">
+				<h:outputText value="Libelle : " styleClass="col-sm-2 control-label" />
+				<div class="col-sm-10">
+					<h:inputText id="libelle"
+						value="#{questionnaireController.questionnaire.libelle}"
+						required="true" requiredMessage="Veuillez renseigner le libelle du questionnaire!"
+						styleClass="form-control">
+						<f:validateLength minimum="1" />
+					</h:inputText>
+				</div>
+			</div>
+			
+			<div class="col-sm-offset-2 col-sm-10">
+			<h:commandButton value="Submit" update="msgs"
+				action="#{questionnaireController.doCreate}" type="submit"
+				icon="ui-icon-check" style="margin:0" styleClass="btn btn-default"></h:commandButton>
+				</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
