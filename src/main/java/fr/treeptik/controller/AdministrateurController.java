@@ -41,7 +41,7 @@ public class AdministrateurController {
 			administrateurService.add(administrateur);
 		}
 		
-		return "succesCreation";
+		return "successCreation";
 	}
 	
 	public int getNbAdministrateurs(){

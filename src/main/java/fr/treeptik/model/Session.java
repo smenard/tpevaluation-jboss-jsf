@@ -26,7 +26,7 @@ public class Session implements Serializable{
 	private Date dateDebutStage;
 	@Temporal(TemporalType.DATE)
 	private Date dateFinStage;
-	private String Descriptif;
+	private String descriptif;
 	@ManyToMany
 	private List<Stagiaire> listStagiaires;
 	@ManyToMany
@@ -56,10 +56,10 @@ public class Session implements Serializable{
 		this.dateFinStage = dateFinStage;
 	}
 	public String getDescriptif() {
-		return Descriptif;
+		return descriptif;
 	}
 	public void setDescriptif(String descriptif) {
-		Descriptif = descriptif;
+		this.descriptif = descriptif;
 	}
 	public List<Stagiaire> getListStagiaires() {
 		return listStagiaires;
@@ -85,7 +85,7 @@ public class Session implements Serializable{
 		builder.append(", dateFinStage=");
 		builder.append(dateFinStage);
 		builder.append(", Descriptif=");
-		builder.append(Descriptif);
+		builder.append(descriptif);
 		builder.append("]");
 		return builder.toString();
 	}

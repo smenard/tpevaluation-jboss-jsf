@@ -38,7 +38,7 @@ public class FormateurController {
 			formateurService.add(formateur);
 		}
 		
-		return "succesCreation";
+		return "successCreation";
 	}
 	@SuppressWarnings("rawtypes")
 	public String doDelete() throws ServiceException{

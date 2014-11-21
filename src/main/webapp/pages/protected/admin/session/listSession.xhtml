@@ -6,41 +6,45 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <ui:composition template="/resources/layout.xhtml">
 	<ui:define name="contenu"> 
-       <h:dataTable styleClass="table table-hover" value="#{formateurController.formateurs}" var="f">
+       <h:dataTable styleClass="table table-hover" value="#{sessionController.sessions}" var="s">
 	   <f:facet name="header">
-        <h:outputText value="Liste des formateurs" />
+        <h:outputText value="Liste des sessions" />
     </f:facet>
      <h:column>
         <f:facet name="header">
             <h:outputText value="ID" />
         </f:facet>
-        <h:outputText value="#{f.id}" />
+        <h:outputText value="#{s.id}" />
     </h:column>
     <h:column>
         <f:facet name="header">
             <h:outputText value="Nom" />
         </f:facet>
-        <h:outputText value="#{f.nom}" />
+        <h:outputText value="#{s.nom}" />
     </h:column>
     <h:column>
         <f:facet name="header">
-            <h:outputText value="Prénom" />
+            <h:outputText value="Date de début" />
         </f:facet>
-        <h:outputText value="#{f.prenom}" />
+        <h:outputText value="#{s.dateDebutStage}" >
+        <f:convertDateTime type="date" pattern="dd-MM-yyyy"/>
+        </h:outputText>
     </h:column>
-    <h:column>
+   <h:column>
         <f:facet name="header">
-            <h:outputText value="Spécialité" />
+            <h:outputText value="Date de fin" />
         </f:facet>
-        <h:outputText value="#{f.specialite}" />
+        <h:outputText value="#{s.dateFinStage}" >
+        <f:convertDateTime type="date" pattern="dd-MM-yyyy"/>
+        </h:outputText>
     </h:column>
      <h:column>
         <f:facet name="header">
             <h:outputText value="Actions" />
         </f:facet>
         <h:form>
-  <h:commandButton styleClass="btn btn-default" value="Update" action="#{formateurController.doSelectUpdate}" />
-  <h:commandButton styleClass="btn btn-default" value="Supprimer" action="#{formateurController.doDelete}" />
+  <h:commandButton styleClass="btn btn-default" value="Update" action="#{sessionController.doSelectUpdate}" />
+  <h:commandButton styleClass="btn btn-default" value="Supprimer" action="#{sessionController.doDelete}" />
   </h:form>
     </h:column>
     <f:facet name="footer">
@@ -48,7 +52,7 @@
     </f:facet>
 	</h:dataTable>
 	<h:form>
-	<h:commandLink value="Créer un formateur" action="#{formateurController.prepareCreate}"/>
+	<h:commandLink value="Créer une session" action="#{sessionController.prepareCreate}"/>
 	</h:form>
 	</ui:define>
 </ui:composition>

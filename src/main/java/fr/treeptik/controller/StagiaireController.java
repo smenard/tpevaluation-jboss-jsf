@@ -46,7 +46,7 @@ public class StagiaireController {
 //			mailUtils.mailCreationUser(stagiaire);
 		}
 		
-		return "succesCreation";
+		return "successCreation";
 	}
 	@SuppressWarnings("rawtypes")
 	public String doDelete() throws ServiceException{
